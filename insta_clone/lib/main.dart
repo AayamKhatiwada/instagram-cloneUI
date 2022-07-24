@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:insta_clone/colors.dart';
+import 'package:insta_clone/responsive/mobileScreenLayout.dart';
+import 'package:insta_clone/responsive/responsive.dart';
+import 'package:insta_clone/responsive/webScreenLayout.dart';
+import 'package:insta_clone/utiles/colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +26,9 @@ class MyApp extends StatelessWidget {
         // setting the background color into extra dark where mobileBackgroundColor is imported from colors.dart
         scaffoldBackgroundColor: mobileBackgroundColor,
       ),
-      home: Scaffold(body: Text("let's bulid instagram")),
+      home: const ResponsiveLayout(
+          webScreenLayout: WebScreenLayout(),
+          mobileScreenLayout: MobileScreenLayout()),
     );
   }
 }
