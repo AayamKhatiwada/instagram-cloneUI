@@ -1,4 +1,4 @@
-package com.example.insta_clone
+package com.example.pratice1
 
 import io.flutter.embedding.android.FlutterActivity
 
