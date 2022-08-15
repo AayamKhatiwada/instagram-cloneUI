@@ -1,7 +1,4 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -19,64 +16,41 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final List<String> stories = [
-    "https://images.pexels.com/photos/12823102/pexels-photo-12823102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "https://images.pexels.com/photos/11961778/pexels-photo-11961778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "https://images.pexels.com/photos/3276046/pexels-photo-3276046.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "https://images.pexels.com/photos/12196835/pexels-photo-12196835.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "https://images.pexels.com/photos/11832019/pexels-photo-11832019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "https://images.pexels.com/photos/12576758/pexels-photo-12576758.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "https://images.pexels.com/photos/12823102/pexels-photo-12823102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "https://images.pexels.com/photos/11961778/pexels-photo-11961778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "https://images.pexels.com/photos/3276046/pexels-photo-3276046.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "https://images.pexels.com/photos/12196835/pexels-photo-12196835.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "https://images.pexels.com/photos/11832019/pexels-photo-11832019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "https://images.pexels.com/photos/12576758/pexels-photo-12576758.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  final List<Story> stories = [
+    Story(image: "assets/1.png", caption: "story_1"),
+    Story(image: "assets/4.png", caption: "story_2"),
+    Story(image: "assets/2.jpg", caption: "story_3"),
+    Story(image: "assets/3.jpg", caption: "story_4"),
+    Story(image: "assets/1.png", caption: "story_5"),
+    Story(image: "assets/4.png", caption: "story_6"),
   ];
 
   List<Post> posts = [
     Post(
         name: "Post_1",
-        image:
-            "https://images.pexels.com/photos/12196835/pexels-photo-12196835.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        userImage:
-            "https://images.pexels.com/photos/12823102/pexels-photo-12823102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        image: "assets/1.png",
+        userImage: "assets/4.png",
         caption: "This post number 1"),
     Post(
         name: "Post_2",
-        image:
-            "https://images.pexels.com/photos/11832019/pexels-photo-11832019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        userImage:
-            "https://images.pexels.com/photos/10673160/pexels-photo-10673160.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        image: "assets/2.jpg",
+        userImage: "assets/4.png",
         caption: "This post number 2"),
     Post(
         name: "Post_3",
-        image:
-            "https://images.pexels.com/photos/12931722/pexels-photo-12931722.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        userImage:
-            "https://images.pexels.com/photos/11805722/pexels-photo-11805722.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        image: "assets/3.jpg",
+        userImage: "assets/4.png",
         caption: "This post number 3"),
     Post(
         name: "Post_4",
-        image:
-            "https://images.pexels.com/photos/12826233/pexels-photo-12826233.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        userImage:
-            "https://images.pexels.com/photos/12576758/pexels-photo-12576758.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        image: "assets/4.png",
+        userImage: "assets/4.png",
         caption: "This post number 4"),
     Post(
         name: "Post_5",
-        image:
-            "https://images.pexels.com/photos/7657404/pexels-photo-7657404.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        userImage:
-            "https://images.pexels.com/photos/4947740/pexels-photo-4947740.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        image: "assets/1.png",
+        userImage: "assets/1.png",
         caption: "This post number 5"),
-    Post(
-        name: "Post_6",
-        image:
-            "https://images.pexels.com/photos/11762028/pexels-photo-11762028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        userImage:
-            "https://images.pexels.com/photos/6159168/pexels-photo-6159168.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        caption: "This post number 6"),
   ];
 
   var currentPage = 0;
@@ -119,11 +93,13 @@ class _MyAppState extends State<MyApp> {
         children: [
           Container(
             height: 140,
+            width: MediaQuery.of(context).size.width,
             color: Color.fromARGB(255, 0, 0, 0),
-            child: ListView(
+            child: ListView.builder(
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
-              children: stories.map((e) {
+              itemCount: stories.length,
+              itemBuilder: (context, index) {
                 return Container(
                   margin: EdgeInsets.symmetric(
                     horizontal: 10,
@@ -136,8 +112,8 @@ class _MyAppState extends State<MyApp> {
                     children: [
                       ClipRRect(
                         borderRadius: BorderRadius.circular(60),
-                        child: Image(
-                          image: NetworkImage(e),
+                        child: Image.asset(
+                          stories[index].image,
                           width: 90,
                           height: 90,
                           fit: BoxFit.cover,
@@ -145,12 +121,13 @@ class _MyAppState extends State<MyApp> {
                       ),
                       Container(
                         margin: EdgeInsets.fromLTRB(0, 8, 0, 0),
-                        child: Text("data"),
+                        child: RichText(
+                            text: TextSpan(text: stories[index].caption)),
                       ),
                     ],
                   ),
                 );
-              }).toList(),
+              },
             ),
           ),
           Container(
@@ -170,8 +147,8 @@ class _MyAppState extends State<MyApp> {
                           children: [
                             ClipRRect(
                               borderRadius: BorderRadius.circular(50),
-                              child: Image(
-                                image: NetworkImage(posts[index].userImage),
+                              child: Image.asset(
+                                posts[index].image,
                                 width: 60,
                                 height: 60,
                                 fit: BoxFit.cover,
@@ -195,8 +172,8 @@ class _MyAppState extends State<MyApp> {
                           ],
                         ),
                       ),
-                      Image(
-                        image: NetworkImage(posts[index].image),
+                      Image.asset(
+                        posts[index].image,
                       ),
                       Row(
                         children: [
@@ -318,4 +295,11 @@ class Post {
       required this.name,
       required this.userImage,
       required this.caption});
+}
+
+class Story {
+  final String image;
+  final String caption;
+
+  Story({required this.image, required this.caption});
 }
